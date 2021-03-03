@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>PDF Hub | Preview Book</title>
+    {% endblock %}
+
+{% block content %}
+<div id = 'preview_container' style = 'padding: 20px'>
+   
+<embed type = 'application/pdf' src="{{book_preview.pdf.url}}">
+</div>
+<p> {{book_preview.title}}</p>
+{% endblock %}

@@ -1,0 +1,45 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+<title>PDF HUb |  Sign Up</title>
+{% endblock %}
+
+{% block content %}
+
+<div id = 'container'>
+  <div class = 'header'>
+    <h2>Create an account</h2>
+  </div>
+  <form action = '#' method = 'POST'>
+    {% csrf_token %}
+    <div id = 'form-control'>
+      <label>Username:</label>
+      {{signup_form.username}}
+    </div>
+
+    <div id = 'form-control'>
+      <label>Email:</label>
+      {{signup_form.email}}
+    </div>
+
+    <div id = 'form-control'>
+      <label>Passowrd</label>
+      {{signup_form.password1}}
+    </div>
+
+    <div id = 'form-control'>
+      <label>Confirm Password</label>
+      {{signup_form.password2}}
+    </div>
+    {{signup_form.errors}}
+    <div id = 'haveAnAccount'>
+      <p>Already have an account?</p>
+      <a href = "{% url 'login' %}"><strong>Login</strong></a>
+    </div>
+    <button type = 'submit' id = 'submitButton'>Register</button>
+  </form>
+</div>
+{% endblock %}

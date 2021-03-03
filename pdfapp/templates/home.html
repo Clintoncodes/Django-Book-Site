@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+    
+    {% block title %}
+    <title>PDF Hub | Home</title>
+    {% endblock %}
+    
+    {% block content %}
+
+    
+
+    
+<div class = 'container'>
+  <div class = 'row'><h4>Recommended Books</h4></div>
+  <div class = 'row'>
+    {% for rb in recommended_books %}
+    <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+      <a href = "{% url 'book_detail' rb.slug %}">
+        <div>
+          <div class="uk-card uk-card-default uk-card-body"> 
+              <img src = "{{rb.cover_image.url}}">
+             
+          </div>
+      </div>
+    </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class = 'container'>
+  <div class = 'row'><h4>Top Fiction Books</h4></div>
+  <div class = 'row'>
+    {% for top_fiction in top_fictions %}
+    <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+      <a href = "{% url 'book_detail' top_fiction.slug %}">
+        <div>
+          <div class="uk-card uk-card-default uk-card-body"> 
+             <img src = "{{top_fiction.cover_image.url}}">
+          </div>
+      </div>
+    </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class = 'container'>
+    <div class = 'row'><h4>Top Business Books</h4></div>
+    <div class = 'row'>
+      {% for business_book in business_books %}
+      <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+        <a href = "{% url 'book_detail' business_book.slug %}">
+          <div>
+            <div class="uk-card uk-card-default uk-card-body"> 
+               <img src = "{{business_book.cover_image.url}}">
+            </div>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+</body>
+</html>
